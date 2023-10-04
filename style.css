@@ -29,11 +29,12 @@ main {
 
 h1 {
     color: #4d4d4d; /* Black header text color */
+    padding-bottom: 2rem;
 }
 
 .board {
-    height: 200px;
-    width: 200px;
+    height: 30rem;
+    width: 30rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
