@@ -1,15 +1,16 @@
 :root {
-    --background: #f8e5c4; /* light peach */
-    --text: #6d4c41; /* brown */
-    --cell-bg: #ffaa80; /* warm coral */
-    --cell-border: #6d4c41;
-    --hover: #ffcc99; /* slightly dark coral */
-    --accent: #bad7df; /* light blue */
+    --background: #ecf0f1;
+    --text: #172554;
+    --primary: #3498db; /* 'X' */
+    --secondary: #e74c3c; /* 'O' */
+    --accent: #73c6dc; /* for grid lines */
+    --accent2: #2ecc71; /* complementary colors */
+    --accent3: #f39c12; /* complementary colors */
 }
 
 body {
-    background-color: #fff2e6; /* White background */
-    color: #4d4d4d; /* Black text color */
+    background-color: var(--background);
+    color: var(--text);
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -28,7 +29,7 @@ main {
 }
 
 h1 {
-    color: #4d4d4d; /* Black header text color */
+    color: var(--text);
     padding-bottom: 2rem;
 }
 
@@ -38,17 +39,41 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    border: 3px solid #333333;
-    
+    border: 3px solid var(--cell-bg);
 }
 
-/* Customize the appearance of your tic-tac-toe cells as needed */
 .grid {
-  border: 1px solid #333333;
-  background-color: #d9d9d9;
+  border: 1px solid var(--accent);
+  background-color: var(--background);
 }
 
-/* Add hover effect to cells if desired */
 .board div:hover {
-    background-color: #c0c0c0; /* Darker black on hover */
+    background-color: #c0c0c0; 
+}
+
+.one,
+.three,
+.seven,
+.nine {
+    border: none;
+}
+
+.two {
+    border-top: none;
+    border-bottom: none;
+}
+
+.four {
+    border-left: none;
+    border-right: none;
+}
+
+.six {
+    border-right: none;
+    border-left: none;
+}
+
+.eight {
+    border-bottom: none;
+    border-top: none;
 }
