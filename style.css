@@ -1,0 +1,53 @@
+:root {
+    --background: #f8e5c4; /* light peach */
+    --text: #6d4c41; /* brown */
+    --cell-bg: #ffaa80; /* warm coral */
+    --cell-border: #6d4c41;
+    --hover: #ffcc99; /* slightly dark coral */
+    --accent: #bad7df; /* light blue */
+}
+
+body {
+    background-color: #fff2e6; /* White background */
+    color: #4d4d4d; /* Black text color */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #4d4d4d; /* Black header text color */
+}
+
+.board {
+    height: 200px;
+    width: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 3px solid #333333;
+    
+}
+
+/* Customize the appearance of your tic-tac-toe cells as needed */
+.grid {
+  border: 1px solid #333333;
+  background-color: #d9d9d9;
+}
+
+/* Add hover effect to cells if desired */
+.board div:hover {
+    background-color: #c0c0c0; /* Darker black on hover */
+}
