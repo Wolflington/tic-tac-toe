@@ -8,17 +8,27 @@
     --accent3: #f39c12; /* complementary colors */
 }
 
-body {
-    background-color: var(--background);
-    color: var(--text);
-    font-family: 'Arial', sans-serif;
+* {
     margin: 0;
     padding: 0;
 }
 
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: 'Arial', sans-serif;
+}
+
 main {
-    margin: 50px auto;
+    margin-top: 50px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 13.5rem;
+}
+
+.counter {
+    margin-top: 5.2rem;
 }
 
 .container {
@@ -26,11 +36,12 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 3rem;
 }
 
 h1 {
     color: var(--text);
-    padding-bottom: 2rem;
+    
 }
 
 .board {
@@ -48,8 +59,10 @@ h1 {
 }
 
 .board div:hover {
-    background-color: #c0c0c0; 
+    background-color: #e0e4e6;
 }
+
+/* modifying grid's border to make 2x2 grid lines */
 
 .one,
 .three,
@@ -77,3 +90,5 @@ h1 {
     border-bottom: none;
     border-top: none;
 }
+
+/* end of modifying grid lines */
