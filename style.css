@@ -56,6 +56,9 @@ h1 {
 .grid {
   border: 1px solid var(--accent);
   background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .board div:hover {
