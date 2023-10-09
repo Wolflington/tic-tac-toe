@@ -1,4 +1,3 @@
-//Store every grid in an array inside of Gameboard object
 const Gameboard = () => {
     //Create an array for board
     let board = ['', '', '', '', '', '', '', '', '']; //board where 'X' and 'O' goes
@@ -6,7 +5,6 @@ const Gameboard = () => {
     const getBoard = () => [...board];
 
     const getMarker = (index, marker) => {
-        //IF the board's index is equivalent to blank,
         if (board[index] === '') { //Check the board if blank
             board[index] = marker;
             return true; //Marker placed successfully
@@ -15,9 +13,14 @@ const Gameboard = () => {
     };
 
     const resetBoard = () => {
-        for (let i = 0; i < board.length; i++) {
-            board[i] = '';
-        }
+        const resetBtn = document.querySelector('.reset');
+        resetBtn.addEventListener('click', (e) => {
+            for (let i = 0; i < board.length; i++) {
+                const grid = document.querySelector(`[data-index="${i}"]`);
+                board[i] = '';
+                grid.textContent = board[i];
+            }
+        });
     };
 
     return { getBoard, getMarker, resetBoard };
@@ -26,7 +29,7 @@ const Gameboard = () => {
 //Factory Function for PLAYER
 const Player = (name, marker) => {
     return { name, marker };
-}
+};
 
 const Game = (() => {
     const board = Gameboard();
@@ -40,7 +43,7 @@ const Game = (() => {
         board.resetBoard(); //Inherit resetBoard from Gameboard module
         isGameOver = false;
         winner = null; //isGameOver and winner is set to default in every start of the game
-        // render() //Keep this function commented for a while since I still haven't thought of it
+        render();
     };
 
     const getCurrentPlayer = () => currentPlayer; //getCurrentPlayer will be returned to swap players
@@ -66,17 +69,18 @@ const Game = (() => {
     const render = () => { //Updates the UI to reflect the current state of the game
         const boardArray = board.getBoard();
 
-        //FOR every index until the end of boardArray's length, increase by one
+        //Checks every element in the board until the last index. If there are changes on an element (say, a player put X or O) then it gets printed in the grid
         for (let i = 0; i < boardArray.length; i++) {
-            //TARGET the data-index of every grid ELEMENT
+            //Targets the data-index of the grid instead of the grids itself in order to keep track of the elements in the boardArray
             const grid = document.querySelector(`[data-index="${i}"]`);
-            //PRINT the index of boardArray as TEXTCONTENT to website
+            //PRINT the current index of boardArray as to website
             grid.textContent = boardArray[i];
         }
     };
 
     return { startGame, getCurrentPlayer, makeMove };
 })();
+
 
 const player1 = Player('Player 1', 'X');
 const player2 = Player('Player 2', 'O');
