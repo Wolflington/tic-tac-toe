@@ -84,7 +84,7 @@ const Game = (() => {
             const [a, b, c] = winCondition; //sets the winCondition identical to winCombination
 
             //Checks if there is three consecutive markers and if the first combination is not blank
-            if (boardArray[a] = '' && boardArray[a] === boardArray[b] && boardArray[a] === boardArray[c]) { 
+            if (boardArray[a] !== '' && boardArray[a] === boardArray[b] && boardArray[a] === boardArray[c]) { 
                 //Set the winner to currentPlayer
                 winner = currentPlayer;
                 //isGameOver becomes true, ending the game
@@ -117,7 +117,7 @@ const Game = (() => {
     const render = () => { //Updates the UI to reflect the current state of the game
         const boardArray = board.getBoard();
 
-        //Checks every element in the board until the last index. If there are changes on an element (say, a player put X or O) then it gets pushed wherever index/grid it was clicked
+        //Checks every element in the board until the last index. If there are changes on an element when a player puts a marker then it gets pushed wherever index/grid it was clicked
         for (let i = 0; i < boardArray.length; i++) {
             //Targets the data-index of the grid instead of the grids itself in order to keep track of the elements in the boardArray
             const grid = document.querySelector(`[data-index="${i}"]`);
