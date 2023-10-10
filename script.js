@@ -1,3 +1,21 @@
+//For making a move when the grids are clicked
+const chooseMove = (() => {
+
+    function playMove() {
+        const tictacBoard = document.getElementById('gameboard');
+        tictacBoard.addEventListener('click', (e) => {
+            const gridsIndex = e.target.dataset.index;
+            if (gridsIndex) {
+                Game.makeMove(parseInt(gridsIndex));
+            }
+        });
+    }
+
+    return { playMove };
+})();
+chooseMove.playMove();
+
+
 const Gameboard = () => {
     //Create an array for board
     let board = ['', '', '', '', '', '', '', '', '']; //board where 'X' and 'O' goes
@@ -24,6 +42,8 @@ const Gameboard = () => {
                 grid.textContent = board[i];
             }
             Game.switchPlayer();
+            Game.startGame(player1, player2);
+            chooseMove.playMove();
         });
     };
 
@@ -136,14 +156,3 @@ const player1 = Player('Player 1', 'X');
 const player2 = Player('Player 2', 'O');
 
 Game.startGame(player1, player2);
-
-
-
-//For making a move when the grids are clicked
-const tictacBoard = document.getElementById('gameboard');
-tictacBoard.addEventListener('click', (e) => {
-    const gridsIndex = e.target.dataset.index;
-    if (gridsIndex) {
-        Game.makeMove(parseInt(gridsIndex));
-    }
-});
