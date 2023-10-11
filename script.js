@@ -61,10 +61,21 @@ const Player = (name, marker) => {
 
 
 const Game = (() => {
+    //GAME SCOPE VARIABLES
     const board = Gameboard();
     let currentPlayer;
     let winner = null;
     let isGameOver = false;
+    const scoreboard = {
+        playerOne: 0,
+        playerTwo: 0,
+        bot: 0,
+    };
+
+    //DOM Elements
+    const playerOneCounter = document.querySelector('.player1');
+    const playerTwoCounter = document.querySelector('.player2');
+
     const winCombination = [
         [0, 1, 2],  // 1st row horizontal
         [3, 4, 5],  // 2nd row horizontal
@@ -107,6 +118,7 @@ const Game = (() => {
             if (boardArray[a] !== '' && boardArray[a] === boardArray[b] && boardArray[a] === boardArray[c]) { 
                 //Set the winner to currentPlayer
                 winner = currentPlayer;
+                trackScore();
                 //isGameOver becomes true, ending the game
                 isGameOver = true;
                 alert(`Winner is ${currentPlayer.name}!`)
@@ -119,6 +131,25 @@ const Game = (() => {
         if (!boardArray.includes('')) {
             isGameOver = true;
             alert(`It's a tie!`);
+        }
+    };
+
+
+    const trackScore = () => {
+        if (winner === player1) { //Increments Player 1's score after winning a round
+            scoreboard.playerOne++;
+            console.log(scoreboard.playerOne);
+            //Print the score on the web page
+            playerOneCounter.textContent = `Player 1: ${scoreboard.playerOne}`;
+        } 
+        else if (winner === player2) {
+            scoreboard.playerTwo++;
+            console.log(scoreboard.playerTwo);
+            playerTwoCounter.textContent = `Player 2: ${scoreboard.playerTwo}`;
+        }
+        else if (winner === bot) {
+            scoreboard.bot++;
+            //Change bot's counter textContent to update the score
         }
     };
 
@@ -149,7 +180,6 @@ const Game = (() => {
 
     return { startGame, getCurrentPlayer, makeMove, switchPlayer };
 })();
-
 
 
 const player1 = Player('Player 1', 'X');
