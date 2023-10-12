@@ -8,6 +8,7 @@
     --accent3: #f39c12; /* complementary colors */
 }
 
+
 * {
     margin: 0;
     padding: 0;
@@ -17,32 +18,33 @@
 body {
     background-color: var(--background);
     color: var(--text);
-    font-family: 'Arial', sans-serif;
 }
 
 main {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 13.5rem;
+    gap:5rem;
 }
 
 .counter {
-    margin-top: 5.2rem;
+    font-family: 'Oxygen', 'Helvetica', sans-serif
 }
 
 .container {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    gap: 7rem;
 }
 
-h1 {
+header {
+    padding-top: 2rem;
     color: var(--text);
-    
+    font-family: 'Lobster', 'Shrikhand', 'Roboto Mono', sans-serif;
 }
 
 .board {
@@ -106,7 +108,6 @@ h1 {
     gap: 2rem;
     justify-content: center;
     align-items: center;
-    /* border-radius: 15px; */
     width: 100%;
     height: 15rem;
     background-color: var(--accent);
@@ -123,7 +124,6 @@ h1 {
     gap: 2rem;
     justify-content: center;
     align-items: center;
-    /* border-radius: 15px; */
     width: 100%;
     height: 15rem;
     background-color: var(--accent);
@@ -162,3 +162,5 @@ h1 {
 .hidden {
     display: none;
 }
+
+/* modal end */
