@@ -139,4 +139,9 @@ h1 {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px);
     z-index: 1;
-  }
+}
+
+/* hides the modal */
+.hidden {
+    display: none;
+}
