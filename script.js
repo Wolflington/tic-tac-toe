@@ -44,6 +44,7 @@ const Gameboard = () => {
             Game.switchPlayer();
             Game.startGame(player1, player2);
             chooseMove.playMove();
+            closeModal();
         });
     };
 
@@ -93,7 +94,7 @@ const Game = (() => {
     //Function expression to start the game and set the players
     const startGame = (player1, player2) => {
         currentPlayer = player1;
-        board.resetBoard(); //Inherit resetBoard from Gameboard module
+        board.resetBoard();
         isGameOver = false;
         winner = null; //isGameOver and winner is set to default in every start of the game
         render();
@@ -105,6 +106,15 @@ const Game = (() => {
 
     const switchPlayer = () => {
         currentPlayer = currentPlayer === player1 ? player2 : player1;
+    };
+
+
+    const openModal = () => {
+        modal.classList.remove('hidden');
+        overlay.classList.remove('hidden');
+    
+        const announceWin = document.querySelector('.announce-winner');
+        announceWin.textContent = `${currentPlayer.name}`;
     };
 
 
@@ -121,7 +131,7 @@ const Game = (() => {
                 trackScore();
                 //isGameOver becomes true, ending the game
                 isGameOver = true;
-                alert(`Winner is ${currentPlayer.name}!`)
+                openModal();
                 return;
             }
         }
@@ -138,19 +148,19 @@ const Game = (() => {
     const trackScore = () => {
         if (winner === player1) { //Increments Player 1's score after winning a round
             scoreboard.playerOne++;
-            console.log(scoreboard.playerOne);
-            //Print the score on the web page
-            playerOneCounter.textContent = `Player 1: ${scoreboard.playerOne}`;
         } 
         else if (winner === player2) {
             scoreboard.playerTwo++;
-            console.log(scoreboard.playerTwo);
-            playerTwoCounter.textContent = `Player 2: ${scoreboard.playerTwo}`;
+
         }
         else if (winner === bot) {
             scoreboard.bot++;
             //Change bot's counter textContent to update the score
         }
+
+        //Update the score on the web page
+        playerOneCounter.textContent = `Player 1: ${scoreboard.playerOne}`;
+        playerTwoCounter.textContent = `Player 2: ${scoreboard.playerTwo}`;
     };
 
 
@@ -178,7 +188,7 @@ const Game = (() => {
     };
 
 
-    return { startGame, getCurrentPlayer, makeMove, switchPlayer };
+    return { startGame, getCurrentPlayer, makeMove, switchPlayer, currentPlayer };
 })();
 
 
@@ -186,3 +196,14 @@ const player1 = Player('Player 1', 'X');
 const player2 = Player('Player 2', 'O');
 
 Game.startGame(player1, player2);
+
+
+//For opening and closing modal
+
+function closeModal() {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+}
+
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
