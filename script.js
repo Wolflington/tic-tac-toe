@@ -140,7 +140,13 @@ const Game = (() => {
         //IF boardArray DOES NOT include blank element
         if (!boardArray.includes('')) {
             isGameOver = true;
-            alert(`It's a tie!`);
+
+            //Opens the modal
+            modal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+    
+            const announceWin = document.querySelector('.announce-winner');
+            announceWin.textContent = `It's a tie!`;
         }
     };
 
