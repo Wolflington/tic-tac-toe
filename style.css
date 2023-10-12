@@ -11,6 +11,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -95,3 +96,17 @@ h1 {
 }
 
 /* end of modifying grid lines */
+
+
+/* modal start */
+.modal {
+    display: flex;
+    flex-direction: column;
+    gap: 3.4rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 31.5rem;
+    height: 15rem;
+    background-color: var(--accent);
+}
