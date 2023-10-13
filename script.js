@@ -34,18 +34,11 @@ const Gameboard = () => {
 
 
     const resetBoard = () => {
-        const resetBtn = document.querySelector('.reset');
-        resetBtn.addEventListener('click', (e) => {
-            for (let i = 0; i < board.length; i++) {
-                const grid = document.querySelector(`[data-index="${i}"]`);
-                board[i] = '';
-                grid.textContent = board[i];
-            }
-            Game.switchPlayer();
-            Game.startGame(player1, player2);
-            chooseMove.playMove();
-            closeModal();
-        });
+        for (let i = 0; i < board.length; i++) {
+            const grid = document.querySelector(`[data-index="${i}"]`);
+            board[i] = '';
+            grid.textContent = board[i];
+        }
     };
 
 
@@ -142,11 +135,9 @@ const Game = (() => {
             isGameOver = true;
 
             //Opens the modal
-            modal.classList.remove('hidden');
+            modalTie.classList.remove('hidden');
             overlay.classList.remove('hidden');
-    
-            const announceWin = document.querySelector('.announce-winner');
-            announceWin.textContent = `It's a tie!`;
+            return;
         }
     };
 
@@ -165,8 +156,8 @@ const Game = (() => {
         }
 
         //Update the score on the web page
-        playerOneCounter.textContent = `Player 1: ${scoreboard.playerOne}`;
-        playerTwoCounter.textContent = `Player 2: ${scoreboard.playerTwo}`;
+        playerOneCounter.textContent = `Player X: ${scoreboard.playerOne}`;
+        playerTwoCounter.textContent = `Player O: ${scoreboard.playerTwo}`;
     };
 
 
@@ -198,8 +189,8 @@ const Game = (() => {
 })();
 
 
-const player1 = Player('Player 1', 'X');
-const player2 = Player('Player 2', 'O');
+const player1 = Player('Player X', 'X');
+const player2 = Player('Player O', 'O');
 
 Game.startGame(player1, player2);
 
@@ -209,7 +200,22 @@ Game.startGame(player1, player2);
 function closeModal() {
     modal.classList.add('hidden');
     overlay.classList.add('hidden');
+    modalTie.classList.add('hidden');
+}
+
+function resetGame() {
+    Game.switchPlayer();
+    Game.startGame(player1, player2);
+    // chooseMove.playMove();
+    closeModal();
 }
 
 const modal = document.querySelector('.modal');
+const modalTie = document.querySelector('.modal-tie');
 const overlay = document.querySelector('.overlay');
+
+const resetBtn = document.querySelector('.reset');
+resetBtn.addEventListener('click', resetGame);
+
+const resetTie = document.querySelector('.reset-tie');
+resetTie.addEventListener('click', resetGame);
