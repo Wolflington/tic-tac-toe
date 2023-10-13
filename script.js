@@ -156,8 +156,8 @@ const Game = (() => {
         }
 
         //Update the score on the web page
-        playerOneCounter.textContent = `Player X: ${scoreboard.playerOne}`;
-        playerTwoCounter.textContent = `Player O: ${scoreboard.playerTwo}`;
+        playerOneCounter.textContent = `${scoreboard.playerOne}`;
+        playerTwoCounter.textContent = `${scoreboard.playerTwo}`;
     };
 
 
