@@ -33,7 +33,7 @@ header {
     padding-top: 2rem;
     color: var(--text);
     font-size: 2.5rem;
-    font-family: 'Lobster', 'Shrikhand', 'Roboto Mono', sans-serif;
+    font-family: 'Lobster', 'Shrikhand', 'Roboto', sans-serif;
 }
 
 .container {
@@ -58,6 +58,9 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
 }
 
 .board div:hover {
@@ -73,11 +76,18 @@ header {
 .counter {
     font-family: 'Oxygen', 'Helvetica', sans-serif;
     /* align-self: flex-start; */
-    background-color: var(--primary);
     color: var(--background);
     border-radius: 10px;
     width: 15rem;
     padding: 5px;
+}
+
+.p1 {
+    background-color: var(--primary);
+}
+
+.p2 {
+    background-color: var(--secondary);
 }
 
 .player1,
