@@ -181,6 +181,13 @@ const Game = (() => {
             const grid = document.querySelector(`[data-index="${i}"]`);
             //PRINT the current index of boardArray as to website
             grid.textContent = boardArray[i];
+
+            // Set color based on the player
+            if (boardArray[i] === 'X') {
+                grid.style.color = '#3498db'; //Primary: blue
+            } else if (boardArray[i] === 'O') {
+                grid.style.color = '#e74c3c'; //Secondary: red
+            }
         }
     };
 
