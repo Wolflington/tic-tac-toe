@@ -26,25 +26,21 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap:5rem;
-}
-
-.counter {
-    font-family: 'Oxygen', 'Helvetica', sans-serif
-}
-
-.container {
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    justify-content: center;
-    gap: 7rem;
+    gap: 5rem;
 }
 
 header {
     padding-top: 2rem;
     color: var(--text);
+    font-size: 2.5rem;
     font-family: 'Lobster', 'Shrikhand', 'Roboto Mono', sans-serif;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18rem;
 }
 
 .board {
@@ -66,6 +62,22 @@ header {
 
 .board div:hover {
     background-color: #e0e4e6;
+}
+
+.player-scores {
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.counter {
+    font-family: 'Oxygen', 'Helvetica', sans-serif;
+    /* align-self: flex-start; */
+    background-color: var(--primary);
+    color: var(--background);
+    border-radius: 10px;
+    width: 15rem;
+    padding: 5px;
 }
 
 /* modifying grid's border to make 2x2 grid lines */
@@ -102,7 +114,8 @@ header {
 
 /* modal start */
 
-.modal { /* for winning condition */
+.modal,
+.modal-tie { /* for winning condition */
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -110,7 +123,7 @@ header {
     align-items: center;
     width: 100%;
     height: 15rem;
-    background-color: var(--accent);
+    background-color: var(--accent2);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -119,19 +132,7 @@ header {
 }
 
 .modal-tie { /*when the game is tied */
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 15rem;
-    background-color: var(--accent);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+    background-color: var(--primary);
 }
 
 .announce-winner {
