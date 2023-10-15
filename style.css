@@ -134,7 +134,7 @@ header {
 .modal-tie {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -150,11 +150,12 @@ header {
 }
 
 .modal-tie {
-    background-color: var(--primary); /* Change to gray */
+    background-color: var(--primary);
+    color: var(--background);
 }
 
 .announce-winner {
-    font-size: 3.3rem;
+    font-size: 4.2rem;
     font-weight: 900;
 }
 
@@ -168,6 +169,10 @@ header {
     color: var(--accent2);
     background-color: var(--background);
     font-size: 1.4rem;
+}
+
+button.reset-tie {
+    color: var(--primary);
 }
 
 /* overlay */
