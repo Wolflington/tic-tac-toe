@@ -26,12 +26,12 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    gap: 4rem;
 }
 
 header {
     padding-top: 2rem;
-    color: var(--text);
+    color: var(--accent3);
     font-size: 2.5rem;
     font-family: 'Lobster', 'Shrikhand', 'Roboto', sans-serif;
 }
@@ -59,7 +59,7 @@ header {
   justify-content: center;
   align-items: center;
   font-family: 'Oxygen', sans-serif;
-  font-size: 5rem;
+  font-size: 6rem;
   font-weight: 900;
 }
 
@@ -131,7 +131,7 @@ header {
 /* modal start */
 
 .modal,
-.modal-tie { /* for winning condition */
+.modal-tie {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -147,8 +147,8 @@ header {
     z-index: 2;
 }
 
-.modal-tie { /*when the game is tied */
-    background-color: var(--primary);
+.modal-tie {
+    background-color: var(--primary); /* Change to gray */
 }
 
 .announce-winner {
