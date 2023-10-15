@@ -134,7 +134,7 @@ header {
 .modal-tie {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -145,6 +145,8 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
+    font-family: 'Young Serif', serif;
+    font-size: 1.5rem;
 }
 
 .modal-tie {
@@ -152,7 +154,8 @@ header {
 }
 
 .announce-winner {
-    font-size: 2.3rem;
+    font-size: 3.3rem;
+    font-weight: 900;
 }
 
 .modal-bottom > button {
