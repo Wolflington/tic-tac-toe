@@ -169,10 +169,20 @@ header {
     color: var(--accent2);
     background-color: var(--background);
     font-size: 1.4rem;
+    transition: all 0.7s ease;
+    transform: scale(1);
 }
 
 button.reset-tie {
     color: var(--primary);
+}
+
+/* reset button hover pseudo-class */
+
+button.reset:hover,
+button.reset-tie:hover {
+    background-color: #f4f6f7;
+    transform: scale(1.2);
 }
 
 /* overlay */
