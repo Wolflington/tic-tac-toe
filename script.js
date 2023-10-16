@@ -98,7 +98,14 @@ const Game = (() => {
 
 
     const switchPlayer = () => {
-        currentPlayer = currentPlayer === player1 ? player2 : player1;
+        const playerDisplay = document.querySelector('.playerDisplay');
+        if (currentPlayer === player1) {
+            currentPlayer = player2;
+            playerDisplay.textContent = `Player X's turn.`;
+        } else {
+            currentPlayer = player1;
+            playerDisplay.textContent = `Player O's turn.`;
+        }
     };
 
 
@@ -215,6 +222,10 @@ function resetGame() {
     Game.startGame(player1, player2);
     // chooseMove.playMove();
     closeModal();
+
+    const playerDisplay = document.querySelector('.playerDisplay');
+    playerDisplay.textContent = `Player X's turn.`;
+
 }
 
 const modal = document.querySelector('.modal');
