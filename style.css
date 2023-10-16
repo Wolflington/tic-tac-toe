@@ -147,11 +147,11 @@ header {
     z-index: 2;
     font-family: 'Young Serif', serif;
     font-size: 1.5rem;
+    color: var(--background);
 }
 
 .modal-tie {
     background-color: var(--primary);
-    color: var(--background);
 }
 
 .announce-winner {
