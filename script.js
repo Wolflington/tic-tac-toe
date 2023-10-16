@@ -102,9 +102,11 @@ const Game = (() => {
         if (currentPlayer === player1) {
             currentPlayer = player2;
             playerDisplay.textContent = `Player O's turn.`;
+            playerDisplay.style.color = '#e74c3c';
         } else {
             currentPlayer = player1;
             playerDisplay.textContent = `Player X's turn.`;
+            playerDisplay.style.color = '#3498db';
         }
     };
 
