@@ -47,6 +47,7 @@ header {
 .playerDisplay {
     font-size: 1.7rem;
     font-family: 'Young Serif', serif;
+    color: var(--primary);
 }
 
 .board {
