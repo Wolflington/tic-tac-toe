@@ -101,10 +101,10 @@ const Game = (() => {
         const playerDisplay = document.querySelector('.playerDisplay');
         if (currentPlayer === player1) {
             currentPlayer = player2;
-            playerDisplay.textContent = `Player X's turn.`;
+            playerDisplay.textContent = `Player O's turn.`;
         } else {
             currentPlayer = player1;
-            playerDisplay.textContent = `Player O's turn.`;
+            playerDisplay.textContent = `Player X's turn.`;
         }
     };
 
